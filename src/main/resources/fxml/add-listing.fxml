@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ecomm.controller.AddListingController"
+            styleClass="app-bg" prefWidth="860.0" prefHeight="760.0">
+    <stylesheets>
+        <URL value="@../css/app.css"/>
+    </stylesheets>
+
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="16.0">
+            <Label text="E-Commerce Auto" styleClass="brand"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="New listing" styleClass="top-bar-text"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="app-bg">
+            <VBox spacing="16.0" alignment="TOP_CENTER" styleClass="app-bg">
+                <padding>
+                    <Insets top="20" right="24" bottom="20" left="24"/>
+                </padding>
+
+                <Label text="Add a car listing" styleClass="page-title"/>
+
+                <VBox spacing="10.0" styleClass="section-card" maxWidth="760.0">
+                    <Label text="Car" styleClass="section-title"/>
+                    <GridPane hgap="14.0" vgap="10.0">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="110.0"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+                        <Label text="Make *" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <ComboBox fx:id="makeComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <Label text="Model *" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <ComboBox fx:id="modelComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                    </GridPane>
+                </VBox>
+
+                <VBox spacing="10.0" styleClass="section-card" maxWidth="760.0">
+                    <Label text="Listing details" styleClass="section-title"/>
+                    <GridPane hgap="14.0" vgap="10.0">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="110.0"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+                        <Label text="Title *" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <TextField fx:id="titleField" promptText="e.g. 2020 Toyota Corolla, one owner"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <Label text="Price (€) *" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <TextField fx:id="priceField" promptText="e.g. 15000" maxWidth="200.0"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Label text="Year *" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <TextField fx:id="yearField" promptText="e.g. 2020" maxWidth="200.0"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Label text="Mileage (km)" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                        <TextField fx:id="mileageField" promptText="e.g. 85000" maxWidth="200.0"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                    </GridPane>
+                    <Label text="Description *" styleClass="field-label"/>
+                    <TextArea fx:id="descriptionArea" prefRowCount="5" wrapText="true"
+                              promptText="Condition, features, service history..."/>
+                </VBox>
+
+                <VBox spacing="10.0" styleClass="section-card" maxWidth="760.0">
+                    <Label text="More details (optional)" styleClass="section-title"/>
+                    <GridPane hgap="14.0" vgap="10.0">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="110.0"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+                        <Label text="Fuel type" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <ComboBox fx:id="fuelTypeComboBox" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <Label text="Transmission" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <ComboBox fx:id="transmissionComboBox" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Label text="Color" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <TextField fx:id="colorField" promptText="e.g. Silver" maxWidth="240.0"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Label text="Location" styleClass="field-label" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                        <TextField fx:id="locationField" promptText="e.g. Cluj-Napoca"
+                                   GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                    </GridPane>
+                </VBox>
+
+                <Label fx:id="messageLabel" text="" wrapText="true" maxWidth="760.0" styleClass="error-text"/>
+
+                <HBox spacing="12.0" alignment="CENTER" maxWidth="760.0">
+                    <Button fx:id="cancelButton" text="Cancel" onAction="#handleCancel" cancelButton="true"
+                            prefWidth="160.0" styleClass="button-secondary"/>
+                    <Button fx:id="saveButton" text="Publish listing" onAction="#handleSaveListing"
+                            prefWidth="200.0" styleClass="button-success"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

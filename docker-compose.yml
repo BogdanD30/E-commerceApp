@@ -1,0 +1,18 @@
+# Local development database. Start with: docker compose up -d
+# The scripts in ./db run automatically the first time the volume is created.
+services:
+  db:
+    image: postgres:17
+    container_name: ecomm-auto-db
+    environment:
+      POSTGRES_DB: ecomm_auto
+      POSTGRES_USER: ecomm
+      POSTGRES_PASSWORD: ecomm_dev
+    ports:
+      - "5433:5432"   # 5433 on the host so it doesn't clash with a local Postgres on 5432
+    volumes:
+      - ecomm_pgdata:/var/lib/postgresql/data
+      - ./db:/docker-entrypoint-initdb.d:ro
+
+volumes:
+  ecomm_pgdata:

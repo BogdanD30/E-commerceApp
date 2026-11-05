@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.ecomm.controller.LoginController"
+           styleClass="auth-bg">
+    <stylesheets>
+        <URL value="@../css/app.css"/>
+    </stylesheets>
+
+    <VBox styleClass="card" maxWidth="380.0" maxHeight="-Infinity" spacing="14.0" alignment="CENTER_LEFT">
+        <padding>
+            <Insets top="28" right="28" bottom="28" left="28"/>
+        </padding>
+
+        <Label text="E-Commerce Auto" styleClass="auth-title"/>
+        <Label text="Sign in to buy and sell cars" styleClass="auth-subtitle"/>
+
+        <VBox spacing="4.0">
+            <Label text="Email" styleClass="field-label"/>
+            <TextField fx:id="emailField" promptText="you@example.com"/>
+        </VBox>
+
+        <VBox spacing="4.0">
+            <Label text="Password" styleClass="field-label"/>
+            <PasswordField fx:id="passwordField" promptText="Your password"/>
+        </VBox>
+
+        <Label fx:id="messageLabel" text="" wrapText="true" styleClass="error-text"/>
+
+        <Button fx:id="loginButton" text="Sign in" onAction="#handleLogin" defaultButton="true"
+                maxWidth="Infinity" styleClass="button-primary"/>
+
+        <HBox alignment="CENTER" spacing="4.0">
+            <Label text="No account yet?" styleClass="hint-text"/>
+            <Button fx:id="registerButton" text="Create one" onAction="#handleRegister" styleClass="button-link"/>
+        </HBox>
+
+        <Label text="Demo account: demo@ecomm.test / Demo1234" styleClass="hint-text" wrapText="true"/>
+    </VBox>
+</StackPane>
